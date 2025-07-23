@@ -21,7 +21,6 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- 1. HEADER / NAVIGATION BAR (Full Width & Responsive) -->
     <header class="bg-white shadow-md absolute top-0 left-0 right-0 z-50">
         <nav class="container mx-auto flex items-center justify-between h-[10vh] px-4 md:px-6">
             <!-- Logo -->
@@ -29,13 +28,26 @@
                 <a href="/"><img src="logo.jpg" alt="The Sol Hiranya Logo" class="h-12 md:h-16 object-contain"></a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden lg:flex flex-1 items-center justify-around">
-                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">About Hiranya</a></div>
-                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">Seek Personal Guidance</a></div>
-                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">Solism</a></div>
-                <div class="text-center nav-item leading-tight"><a href="#" class="text-lg text-gray-700 hover:text-black">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a></div>
+            <!-- START: Modified Desktop Navigation -->
+            <div class="hidden lg:flex flex-1 items-center justify-between mx-8">
+                <!-- Left Links -->
+                <div class="flex items-center space-x-8">
+                    <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">About Hiranya</a></div>
+                    <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">Solism</a></div>
+                </div>
+
+                <!-- Center Highlighted Link -->
+                <div class="nav-item">
+                    <a href="#" class="text-lg text-white bg-black hover:bg-gray-800 transition-colors duration-300 px-6 py-2 rounded-full shadow-md">Seek Personal Guidance</a>
+                </div>
+
+                <!-- Right Link -->
+                <div class="flex items-center">
+                     <div class="text-center nav-item leading-tight"><a href="#" class="text-lg text-gray-700 hover:text-black">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a></div>
+                </div>
             </div>
+            <!-- END: Modified Desktop Navigation -->
+
 
             <!-- Mobile Menu Button -->
             <div class="lg:hidden">
@@ -51,8 +63,8 @@
             <div class="absolute top-0 left-0 w-full h-screen bg-white z-50 flex flex-col items-center justify-center space-y-8">
                 <button id="close-btn" class="absolute top-6 right-6 text-gray-700 text-3xl">×</button>
                 <a href="#" class="text-2xl nav-item">About Hiranya</a>
-                <a href="#" class="text-2xl nav-item">Seek Personal Guidance</a>
                 <a href="#" class="text-2xl nav-item">Solism</a>
+                <a href="#" class="text-2xl nav-item">Seek Personal Guidance</a>
                 <a href="#" class="text-2xl nav-item text-center leading-tight">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a>
             </div>
         </div>

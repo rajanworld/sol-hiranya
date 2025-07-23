@@ -9,64 +9,58 @@
     <!-- Swiper.js CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-        /* Custom Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400&display=swap');
-
-        body {
-            font-family: 'Jost', sans-serif;
-            background-color: #000; /* Main background is black, which the columns will use */
-        }
-
-        h1, h2, h3, h4, h5, h6, .nav-item {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        /* Swiper.js Navigation & Pagination Styling */
-        .swiper-button-next, .swiper-button-prev {
-            color: #ffffff; opacity: 0.7; transition: opacity 0.3s;
-        }
+        body { font-family: 'Jost', sans-serif; background-color: #000; }
+        h1, h2, h3, h4, h5, h6, .nav-item { font-family: 'Cormorant Garamond', serif; }
+        .swiper-button-next, .swiper-button-prev { color: #ffffff; opacity: 0.7; transition: opacity 0.3s; }
         .swiper-button-next:hover, .swiper-button-prev:hover { opacity: 1; }
         .swiper-pagination-bullet { background-color: #ffffff; opacity: 0.7; }
         .swiper-pagination-bullet-active { opacity: 1; }
-
-        /* Overlay on each slide for better text/arrow visibility */
-        .slide-overlay {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
+        .slide-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); z-index: 1; }
     </style>
 </head>
-
 <body class="text-gray-800">
 
-    <!-- 1. HEADER / NAVIGATION BAR (Full Width) -->
+    <!-- 1. HEADER / NAVIGATION BAR (Full Width & Responsive) -->
     <header class="bg-white shadow-md absolute top-0 left-0 right-0 z-50">
-        <nav class="container mx-auto flex items-center justify-around h-[10vh] px-4">
-            <div class="flex-1 flex justify-center items-center">
-                <a href="/"><img src="logo.jpg" alt="The Sol Hiranya Logo" class="h-16 object-contain"></a>
+        <nav class="container mx-auto flex items-center justify-between h-[10vh] px-4 md:px-6">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="/"><img src="logo.jpg" alt="The Sol Hiranya Logo" class="h-12 md:h-16 object-contain"></a>
             </div>
-            <div class="flex-1 text-center nav-item">
-                <a href="#" class="text-lg text-gray-700 hover:text-black transition-colors duration-300">About Hiranya</a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex flex-1 items-center justify-around">
+                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">About Hiranya</a></div>
+                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">Seek Personal Guidance</a></div>
+                <div class="text-center nav-item"><a href="#" class="text-lg text-gray-700 hover:text-black">Solism</a></div>
+                <div class="text-center nav-item leading-tight"><a href="#" class="text-lg text-gray-700 hover:text-black">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a></div>
             </div>
-            <div class="flex-1 text-center nav-item">
-                <a href="#" class="text-lg text-gray-700 hover:text-black transition-colors duration-300">Seek Personal Guidance</a>
-            </div>
-            <div class="flex-1 text-center nav-item">
-                <a href="#" class="text-lg text-gray-700 hover:text-black transition-colors duration-300">Solism</a>
-            </div>
-            <div class="flex-1 text-center nav-item leading-tight">
-                <a href="#" class="text-lg text-gray-700 hover:text-black transition-colors duration-300">
-                    Articles- Read My Thoughts<br>
-                    <span class="font-bold">Reshape Your Own</span>
-                </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="menu-btn" type="button" class="text-gray-700 hover:text-black focus:outline-none">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
             </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="absolute top-0 left-0 w-full h-screen bg-white z-50 flex flex-col items-center justify-center space-y-8">
+                <button id="close-btn" class="absolute top-6 right-6 text-gray-700 text-3xl">×</button>
+                <a href="#" class="text-2xl nav-item">About Hiranya</a>
+                <a href="#" class="text-2xl nav-item">Seek Personal Guidance</a>
+                <a href="#" class="text-2xl nav-item">Solism</a>
+                <a href="#" class="text-2xl nav-item text-center leading-tight">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a>
+            </div>
+        </div>
     </header>
 
     <!-- MAIN CONTENT -->
     <main>
-        <!-- 2. HERO IMAGE SLIDER SECTION (Full Width) -->
+        <!-- 2. HERO IMAGE SLIDER SECTION -->
         <section id="hero" class="relative h-screen bg-black">
             <div class="swiper mySwiper h-full">
                 <div class="swiper-wrapper">
@@ -74,41 +68,30 @@
                     <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('1.jpg');"><div class="slide-overlay"></div></div>
                     <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('2.jpg');"><div class="slide-overlay"></div></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>
             </div>
-            <a href="#content" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300 z-20">
+            <a href="#content" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 z-20">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </a>
         </section>
 
-        <!-- 3. CONTENT SECTION WITH BLACK COLUMNS -->
+        <!-- 3. CONTENT SECTION WITH RESPONSIVE BLACK COLUMNS -->
         <section id="content">
             <div class="flex w-full">
-                <!-- Left Black Column (as per the sketch) -->
-                <!-- The width is a percentage to be responsive. `flex-shrink-0` prevents it from collapsing. -->
-                <div class="w-[12%] flex-shrink-0 bg-black">
-                    <!-- Intentionally empty to act as a visual column -->
-                </div>
+                <!-- Left Black Column: Hidden on mobile, visible on large screens -->
+                <div class="hidden lg:block lg:w-[12%] flex-shrink-0 bg-black"></div>
 
-                <!-- Center White Content Area -->
-                <div class="flex-1 bg-white py-24 sm:py-32">
+                <!-- Center White Content Area: Full width on mobile -->
+                <div class="flex-1 bg-white py-20 lg:py-32">
                     <div class="mx-auto max-w-4xl px-6 lg:px-8 text-center">
                         <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Content Heading</h2>
-                        <p class="mt-8 text-lg leading-8 text-gray-600">
-                            Welcome to a space of profound exploration and personal transformation. Here, we delve into the depths of consciousness, spirituality, and the art of mindful living. This content is now perfectly framed as requested in the design sketch.
-                        </p>
-                        <p class="mt-6 text-lg leading-8 text-gray-600">
-                            Through the lens of Solism and ancient wisdom traditions, discover pathways to inner peace, clarity, and authentic self-expression. Each article and guidance session is crafted to illuminate the journey within and inspire meaningful change. Whether you seek personal guidance, philosophical insights, or practical tools for spiritual growth, this platform serves as your companion on the path to self-discovery and enlightenment.
-                        </p>
+                        <p class="mt-8 text-lg leading-8 text-gray-600">Welcome to a space of profound exploration and personal transformation. Here, we delve into the depths of consciousness, spirituality, and the art of mindful living. This content is now perfectly framed as requested in the design sketch.</p>
+                        <p class="mt-6 text-lg leading-8 text-gray-600">Through the lens of Solism and ancient wisdom traditions, discover pathways to inner peace, clarity, and authentic self-expression. Each article and guidance session is crafted to illuminate the journey within and inspire meaningful change. Whether you seek personal guidance, philosophical insights, or practical tools for spiritual growth, this platform serves as your companion on the path to self-discovery and enlightenment.</p>
                     </div>
                 </div>
 
-                <!-- Right Black Column (as per the sketch) -->
-                <div class="w-[12%] flex-shrink-0 bg-black">
-                    <!-- Intentionally empty -->
-                </div>
+                <!-- Right Black Column: Hidden on mobile, visible on large screens -->
+                <div class="hidden lg:block lg:w-[12%] flex-shrink-0 bg-black"></div>
             </div>
         </section>
     </main>
@@ -118,25 +101,37 @@
         <div class="container mx-auto px-4">
             <h3 class="text-2xl font-semibold text-gray-300">Connect & Follow</h3>
             <div class="flex justify-center gap-6 mt-6">
-                 <a href="#" class="text-gray-400 hover:text-white" aria-label="Facebook"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                 <a href="#" class="text-gray-400 hover:text-white" aria-label="Twitter"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
-                 <a href="#" class="text-gray-400 hover:text-white" aria-label="Instagram"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.873 1.734-3.873 3.873s1.737 3.873 3.873 3.873 3.873-1.734 3.873-3.873-1.737-3.873-3.873-3.873zM12 14.162c-1.205 0-2.185-.98-2.185-2.185s.98-2.185 2.185-2.185 2.185.98 2.185 2.185-.98 2.185-2.185 2.185zM18.125 6.353c-.563 0-1.018.455-1.018 1.018s.455 1.018 1.018 1.018 1.018-.455 1.018-1.018-.455-1.018-1.018-1.018z" clip-rule="evenodd" /></svg></a>
+                 <a href="#" aria-label="Facebook"><svg class="h-6 w-6 fill-current text-gray-400 hover:text-white" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                 <a href="#" aria-label="Twitter"><svg class="h-6 w-6 fill-current text-gray-400 hover:text-white" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                 <a href="#" aria-label="Instagram"><svg class="h-6 w-6 fill-current text-gray-400 hover:text-white" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.873 1.734-3.873 3.873s1.737 3.873 3.873 3.873 3.873-1.734 3.873-3.873-1.737-3.873-3.873-3.873zM12 14.162c-1.205 0-2.185-.98-2.185-2.185s.98-2.185 2.185-2.185 2.185.98 2.185 2.185-.98 2.185-2.185 2.185zM18.125 6.353c-.563 0-1.018.455-1.018 1.018s.455 1.018 1.018 1.018 1.018-.455 1.018-1.018-.455-1.018-1.018-1.018z" clip-rule="evenodd" /></svg></a>
             </div>
             <p class="mt-8 text-sm text-gray-500">© 2024 The Sol Hiranya. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Swiper.js Script CDN -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
     <script>
+      // Swiper Initialization
       var swiper = new Swiper(".mySwiper", {
         loop: true,
         effect: "fade",
         autoplay: { delay: 5000, disableOnInteraction: false },
         pagination: { el: ".swiper-pagination", clickable: true },
         navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      });
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const closeBtn = document.getElementById('close-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
       });
     </script>
 </body>

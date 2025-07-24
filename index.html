@@ -21,7 +21,6 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- 1. HEADER / NAVIGATION BAR (Full Width & Responsive) -->
     <header class="bg-white shadow-md absolute top-0 left-0 right-0 z-50">
         <!-- START: MODIFIED NAVIGATION -->
         <nav class="container mx-auto flex items-center justify-between lg:grid lg:grid-cols-5 h-[10vh] px-4 md:px-6 lg:px-0">
@@ -30,43 +29,51 @@
             <div class="flex-shrink-0 lg:flex lg:items-center lg:justify-center lg:border-r lg:border-black lg:h-full">
                 <a href="/"><img src="logo.jpg" alt="The Sol Hiranya Logo" class="h-12 md:h-16 object-contain"></a>
             </div>
-
+    
             <!-- Desktop Nav Items (Grid Items 2-5, hidden on mobile) -->
             <div class="hidden lg:flex items-center justify-center h-full text-center nav-item lg:border-r lg:border-black">
-                <a href="#" class="text-lg text-gray-700 hover:text-black">About Hiranya</a>
+                <a href="#" class="text-lg font-semibold tracking-wide text-gray-800 hover:text-black">About Hiranya</a>
             </div>
             <div class="hidden lg:flex items-center justify-center h-full text-center nav-item lg:border-r lg:border-black">
-                <a href="#" class="text-lg text-gray-700 hover:text-black">Seek Personal Guidance</a>
+                <a href="#" class="text-lg font-semibold tracking-wide text-gray-800 hover:text-black">Seek Personal Guidance</a>
             </div>
             <div class="hidden lg:flex items-center justify-center h-full text-center nav-item lg:border-r lg:border-black">
-                <a href="#" class="text-lg text-gray-700 hover:text-black">Solism</a>
+                <a href="#" class="text-lg font-semibold tracking-wide text-gray-800 hover:text-black">Solism</a>
             </div>
             <div class="hidden lg:flex items-center justify-center h-full text-center nav-item leading-tight px-2">
-                <a href="#" class="text-lg text-gray-700 hover:text-black">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a>
+                <a href="#" class="text-lg font-semibold tracking-wide text-gray-800 hover:text-black">
+                    Articles – Read My Thoughts<br>
+                    <span class="font-bold">Reshape Your Own</span>
+                </a>
             </div>
             
             <!-- Mobile Menu Button (Hidden on desktop) -->
             <div class="lg:hidden">
                 <button id="menu-btn" type="button" class="text-gray-700 hover:text-black focus:outline-none">
                     <span class="sr-only">Open main menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
         <!-- END: MODIFIED NAVIGATION -->
-
-        <!-- Mobile Menu (Links reordered for consistency) -->
-        <div id="mobile-menu" class="hidden lg:hidden">
+    
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden">
             <div class="absolute top-0 left-0 w-full h-screen bg-white z-50 flex flex-col items-center justify-center space-y-8">
                 <button id="close-btn" class="absolute top-6 right-6 text-gray-700 text-3xl">×</button>
-                <a href="#" class="text-2xl nav-item">About Hiranya</a>
-                <a href="#" class="text-2xl nav-item">Seek Personal Guidance</a>
-                <a href="#" class="text-2xl nav-item">Solism</a>
-                <a href="#" class="text-2xl nav-item text-center leading-tight">Articles- Read My Thoughts<br><span class="font-bold">Reshape Your Own</span></a>
+                <a href="#" class="text-2xl font-semibold tracking-wide text-gray-800 nav-item">About Hiranya</a>
+                <a href="#" class="text-2xl font-semibold tracking-wide text-gray-800 nav-item">Seek Personal Guidance</a>
+                <a href="#" class="text-2xl font-semibold tracking-wide text-gray-800 nav-item">Solism</a>
+                <a href="#" class="text-2xl font-semibold tracking-wide text-gray-800 nav-item text-center leading-tight">
+                    Articles – Read My Thoughts<br>
+                    <span class="font-bold">Reshape Your Own</span>
+                </a>
             </div>
         </div>
     </header>
-
+    
     <!-- MAIN CONTENT -->
     <main>
         <!-- 2. HERO IMAGE SLIDER SECTION -->
@@ -88,7 +95,7 @@
         <section id="content">
             <div class="flex w-full">
                 <!-- Left Black Column: Hidden on mobile, width reduced to 8% on large screens -->
-                <div class="hidden lg:block lg:w-[8%] flex-shrink-0 bg-black"></div>
+                <div class="hidden lg:block lg:w-[4%] flex-shrink-0 bg-black"></div>
 
                 <!-- Center White Content Area: Full width on mobile -->
                 <div class="flex-1 bg-white py-20 lg:py-32">
@@ -100,7 +107,7 @@
                 </div>
 
                 <!-- Right Black Column: Hidden on mobile, width reduced to 8% on large screens -->
-                <div class="hidden lg:block lg:w-[8%] flex-shrink-0 bg-black"></div>
+                <div class="hidden lg:block lg:w-[4%] flex-shrink-0 bg-black"></div>
             </div>
         </section>
     </main>

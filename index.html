@@ -80,7 +80,7 @@
     <!-- MAIN CONTENT -->
     <main>
         <!-- 2. HERO IMAGE SLIDER SECTION -->
-        <section id="hero" class="relative h-screen bg-black">
+        <section id="hero" class="relative bg-black h-[30vh] transition-all duration-1000 ease-in-out">
             <div class="swiper mySwiper h-full">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('2.jpg');"><div class="slide-overlay"></div></div>
@@ -89,18 +89,24 @@
                 </div>
                 <div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>
             </div>
-            <a href="#content" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 z-20">
+
+            <!-- Reveal Button (Down Arrow) -->
+            <button id="reveal-btn" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 z-20">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-            </a>
+            </button>
+            
+            <!-- Hide Button (Up Arrow) - initially hidden -->
+            <button id="hide-btn" class="hidden absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+            </button>
         </section>
 
         <!-- 3. CONTENT SECTION WITH RESPONSIVE BLACK COLUMNS -->
         <section id="content">
             <div class="flex w-full">
-                <!-- Left Black Column: Hidden on mobile, width reduced to 8% on large screens -->
+                <!-- Left Black Column: Hidden on mobile -->
                 <div class="hidden lg:block lg:w-[4%] flex-shrink-0 bg-black"></div>
-
-                <!-- Center White Content Area: Full width on mobile -->
+                <!-- Center White Content Area -->
                 <div class="flex-1 bg-white py-20 lg:py-32">
                     <div class="mx-auto max-w-4xl px-6 lg:px-8 text-center">
                         <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Content Heading</h2>
@@ -108,16 +114,15 @@
                         <p class="mt-6 text-lg leading-8 text-gray-600">Through the lens of Solism and ancient wisdom traditions, discover pathways to inner peace, clarity, and authentic self-expression. Each article and guidance session is crafted to illuminate the journey within and inspire meaningful change. Whether you seek personal guidance, philosophical insights, or practical tools for spiritual growth, this platform serves as your companion on the path to self-discovery and enlightenment.</p>
                     </div>
                 </div>
-
-                <!-- Right Black Column: Hidden on mobile, width reduced to 8% on large screens -->
+                <!-- Right Black Column: Hidden on mobile -->
                 <div class="hidden lg:block lg:w-[4%] flex-shrink-0 bg-black"></div>
             </div>
         </section>
     </main>
     
-    <!-- START: NEW GOLDEN SEPARATOR LINE -->
+    <!-- START: GOLDEN SEPARATOR LINE -->
     <div class="w-full h-1.5 bg-amber-400"></div>
-    <!-- END: NEW GOLDEN SEPARATOR LINE -->
+    <!-- END: GOLDEN SEPARATOR LINE -->
 
     <!-- 4. FOOTER (Full Width) -->
     <footer class="bg-black text-white text-center py-12">
@@ -156,6 +161,32 @@
       closeBtn.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+
+      // ----> UPDATED SCRIPT FOR HERO TOGGLE <----
+      const heroSection = document.getElementById('hero');
+      const revealBtn = document.getElementById('reveal-btn');
+      const hideBtn = document.getElementById('hide-btn');
+
+      // Event listener to EXPAND the hero section
+      revealBtn.addEventListener('click', () => {
+        heroSection.classList.remove('h-[30vh]');
+        heroSection.classList.add('h-screen');
+
+        // Hide the down arrow and show the up arrow
+        revealBtn.classList.add('hidden');
+        hideBtn.classList.remove('hidden');
+      });
+      
+      // Event listener to COLLAPSE the hero section
+      hideBtn.addEventListener('click', () => {
+        heroSection.classList.remove('h-screen');
+        heroSection.classList.add('h-[30vh]');
+        
+        // Hide the up arrow and show the down arrow
+        hideBtn.classList.add('hidden');
+        revealBtn.classList.remove('hidden');
+      });
+
     </script>
 </body>
 </html>

@@ -80,7 +80,7 @@
     <!-- MAIN CONTENT -->
     <main>
         <!-- 2. HERO IMAGE SLIDER SECTION -->
-        <section id="hero" class="relative bg-black h-[30vh] transition-all duration-1000 ease-in-out">
+        <section id="hero" class="relative bg-black h-[50vh] transition-all duration-1000 ease-in-out">
             <div class="swiper mySwiper h-full">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('2.jpg');"><div class="slide-overlay"></div></div>
@@ -169,7 +169,7 @@
 
       // Event listener to EXPAND the hero section
       revealBtn.addEventListener('click', () => {
-        heroSection.classList.remove('h-[30vh]');
+        heroSection.classList.remove('h-[50vh]');
         heroSection.classList.add('h-screen');
 
         // Hide the down arrow and show the up arrow
@@ -180,7 +180,7 @@
       // Event listener to COLLAPSE the hero section
       hideBtn.addEventListener('click', () => {
         heroSection.classList.remove('h-screen');
-        heroSection.classList.add('h-[30vh]');
+        heroSection.classList.add('h-[50vh]');
         
         // Hide the up arrow and show the down arrow
         hideBtn.classList.add('hidden');

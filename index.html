@@ -6,8 +6,6 @@
     <title>The Sol Hiranya</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Swiper.js CSS CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400&display=swap');
     
@@ -17,10 +15,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-        .swiper-button-next, .swiper-button-prev { color: #ffffff; opacity: 0.7; transition: opacity 0.3s; }
-        .swiper-button-next:hover, .swiper-button-prev:hover { opacity: 1; }
-        .swiper-pagination-bullet { background-color: #ffffff; opacity: 0.7; }
-        .swiper-pagination-bullet-active { opacity: 1; }
+        /* The dark overlay for the hero image */
         .slide-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.3); z-index: 1; }
     </style>
 </head>
@@ -79,16 +74,10 @@
     
     <!-- MAIN CONTENT -->
     <main>
-        <!-- 2. HERO IMAGE SLIDER SECTION -->
-        <section id="hero" class="relative bg-black h-[50vh] transition-all duration-1000 ease-in-out">
-            <div class="swiper mySwiper h-full">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('2.jpg');"><div class="slide-overlay"></div></div>
-                    <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('1.jpg');"><div class="slide-overlay"></div></div>
-                    <div class="swiper-slide relative bg-cover bg-center" style="background-image: url('2.jpg');"><div class="slide-overlay"></div></div>
-                </div>
-                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>
-            </div>
+        <!-- 2. HERO IMAGE SECTION (STATIC) -->
+        <section id="hero" class="relative bg-cover bg-center h-[50vh] transition-all duration-1000 ease-in-out" style="background-image: url('2.jpg');">
+            <!-- Overlay -->
+            <div class="slide-overlay"></div>
 
             <!-- Reveal Button (Down Arrow) -->
             <button id="reveal-btn" class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 z-20">
@@ -138,17 +127,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      // Swiper Initialization
-      var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        effect: "fade",
-        autoplay: { delay: 5000, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-      });
-
       // Mobile Menu Toggle
       const menuBtn = document.getElementById('menu-btn');
       const closeBtn = document.getElementById('close-btn');
@@ -162,7 +141,7 @@
         mobileMenu.classList.add('hidden');
       });
 
-      // ----> UPDATED SCRIPT FOR HERO TOGGLE <----
+      // ----> SCRIPT FOR HERO TOGGLE <----
       const heroSection = document.getElementById('hero');
       const revealBtn = document.getElementById('reveal-btn');
       const hideBtn = document.getElementById('hide-btn');
